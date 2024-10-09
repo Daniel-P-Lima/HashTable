@@ -22,10 +22,13 @@
 
         public function insere($chave) {
             $indice = $this->hash($chave);
-            if(!$this->tabela[$indice]->vazia()) {
-                $this->colisao++;
+            if(!$this->tabela[$indice]->contem($chave)) {
+                if(!$this->tabela[$indice]->vazia()) {
+                    $this->colisao++;
+                }
+                $this->tabela[$indice]->insere($chave);
             }   
-            $this->tabela[$indice]->insere($chave);
+            
         }
 
         public function imprimeTabela() {
