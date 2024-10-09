@@ -25,7 +25,7 @@
             $indice = $this->hash($chave);
             if(!$this->tabela[$indice]->vazia()) {
                 $this->colisao++;
-            }
+            }   
             $this->tabela[$indice]->insere($chave);
         }
 
@@ -51,6 +51,18 @@
                 $numeroAleatorio = random_int(0, 1000000);
                 $this->insere($numeroAleatorio);
             }
+        }
+
+        public function busca($chave) {
+            $tamanhoTabela = count($this->tabela);
+            for ($i = 0; $i < $tamanhoTabela; $i++) {
+                if($this->tabela[$i]->contem($chave)) {
+                    echo "O elemento foi encontrado! <br/>";
+                    return true;
+                }
+            }
+            echo "O elemento não foi encontrado! <br/>";
+            return false;
         }
     }
 
