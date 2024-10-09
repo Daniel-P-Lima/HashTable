@@ -34,4 +34,15 @@ class ListaEncadeada {
             $ponteiro = $ponteiro->__get('proximo'); 
         }
     } 
+
+    public function contem($chave) {
+        $ponteiro = $this->Lista;
+        while ($ponteiro != null) {
+            if ($ponteiro->__get('chave') == $chave) {
+                return true; 
+            }
+            $ponteiro = $ponteiro->__get('proximo'); 
+        }
+        return false; 
+    }
 }
