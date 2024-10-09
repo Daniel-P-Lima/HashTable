@@ -10,7 +10,6 @@
 
         public function __construct(int $tamanho)
         {
-            $this->tabela = array_fill(0, $tamanho, null);
             for ($i = 0; $i < $tamanho; $i++) {
                 $this->tabela[$i] = new ListaEncadeada();
             }
